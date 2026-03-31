@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-// IMPORTA TU COMPONENTE (ajusta la ruta)
-import RecipeCard from "../../components/RecipeCard";
+import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
 export default function RecipePage({ navigation }) {
   const insets = useSafeAreaInsets();
