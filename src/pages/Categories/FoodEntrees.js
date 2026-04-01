@@ -18,7 +18,7 @@ export default function FoodEntrees({ navigation }) {
         title: "Empanadas colombianas",
         descrip: "Crujientes empanadas rellenas de carne y papa",
         category: "FoodEntrees",
-        // image: require("../../assets/images/empanada.jpg"),
+        image: require("../../../assets/images/empanada.jpg"),
         ingredients: ["Carne", "Papa", "Cebolla"],
         steps: ["Preparar relleno", "Armar", "Freír"],
       },
@@ -27,7 +27,7 @@ export default function FoodEntrees({ navigation }) {
         title: "Chorizo artesanal",
         descrip: "Chorizo jugoso acompañado de arepa",
         category: "FoodEntrees",
-        // image: require("../../assets/images/chorizo.jpg"),
+        image: require("../../../assets/images/chorizo.jpg"),
         ingredients: ["Carne de cerdo", "Especias"],
         steps: ["Condimentar", "Cocinar"],
       },
@@ -36,7 +36,7 @@ export default function FoodEntrees({ navigation }) {
         title: "Bruschetta",
         descrip: "Pan tostado con tomate y aceite de oliva",
         category: "FoodEntrees",
-        // image: require("../../assets/images/bruschetta.jpg"),
+        image: require("../../../assets/images/bruschetta.jpg"),
         ingredients: ["Pan", "Tomate", "Ajo"],
         steps: ["Tostar pan", "Agregar mezcla"],
       },
@@ -45,7 +45,7 @@ export default function FoodEntrees({ navigation }) {
         title: "Ceviche",
         descrip: "Pescado marinado en limón",
         category: "FoodEntrees",
-        // image: require("../../assets/images/ceviche.jpg"),
+        image: require("../../../assets/images/ceviche.jpg"),
         ingredients: ["Pescado", "Limón", "Cebolla"],
         steps: ["Marinar", "Servir frío"],
       },
@@ -54,7 +54,7 @@ export default function FoodEntrees({ navigation }) {
         title: "Sopa de verduras",
         descrip: "Sopa caliente y nutritiva",
         category: "FoodEntrees",
-        // image: require("../../assets/images/sopa.jpg"),
+        image: require("../../../assets/images/sopa.jpg"),
         ingredients: ["Zanahoria", "Papa", "Caldo"],
         steps: ["Hervir", "Servir"],
       },
@@ -74,6 +74,10 @@ export default function FoodEntrees({ navigation }) {
       </View>
     );
   }
+  <Image
+  source={require("../../../assets/images/empanada.jpg")}
+  style={{ width: 200, height: 200 }}
+/>
 
   return (
     <View style={{ flex: 1, paddingTop: insets.top }}>
