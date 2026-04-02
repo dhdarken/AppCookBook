@@ -13,37 +13,46 @@ export default function Home({ navigation }) {
   if (loading) {
     return (
       <View style={styles.center}>
-        <Text style={{ fontSize: 18 }}>Cargando...</Text>
+        <Text style={styles.loading}>Cargando...</Text>
       </View>
     );
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🍽️ Escoge una categoría</Text>
+      
+      {/* HEADER */}
+      <View style={styles.header}>
+        <Text style={styles.title}>CookBook</Text>
+        <View style={styles.line} />
+        <Text style={styles.subtitle}>Explora recetas fácilmente</Text>
+      </View>
 
-      <Pressable
-        style={styles.card}
-        onPress={() => navigation.navigate("FoodEntrees")}
-      >
-        <Text style={styles.cardText}>🥟 Entradas</Text>
-      </Pressable>
+      {/* CARDS */}
+      <View style={styles.cardsContainer}>
+        <Pressable
+          style={styles.card}
+          onPress={() => navigation.navigate("FoodEntrees")}
+        >
+          <Text style={styles.cardText}>🥟 Entradas</Text>
+        </Pressable>
 
-      <Pressable
-        style={styles.card}
-        onPress={() => navigation.navigate("MainCourse")}
-      >
-        <Text style={styles.cardText}>🍗 Plato fuerte</Text>
-      </Pressable>
+        <Pressable
+          style={styles.card}
+          onPress={() => navigation.navigate("MainCourse")}
+        >
+          <Text style={styles.cardText}>🍗 Plato fuerte</Text>
+        </Pressable>
 
-      <Pressable
-        style={styles.card}
-        onPress={() => navigation.navigate("Dessert")}
-      >
-        <Text style={styles.cardText}>🍰 Postres</Text>
-      </Pressable>
+        <Pressable
+          style={styles.card}
+          onPress={() => navigation.navigate("Dessert")}
+        >
+          <Text style={styles.cardText}>🍰 Postres</Text>
+        </Pressable>
+      </View>
 
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </View>
   );
 }
@@ -51,31 +60,72 @@ export default function Home({ navigation }) {
 const styles = {
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#f8f9fa",
+    justifyContent: "center", // 🔥 centra vertical
+    alignItems: "center",     // 🔥 centra horizontal
+    paddingHorizontal: 20,
   },
+
   center: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#f8f9fa",
   },
-  title: {
-    fontSize: 22,
-    fontWeight: "bold",
+
+  loading: {
+    fontSize: 16,
+    color: "#555",
+  },
+
+  header: {
+    alignItems: "center",
     marginBottom: 30,
   },
-  card: {
-    width: "80%",
-    padding: 20,
-    backgroundColor: "#fff",
-    borderRadius: 12,
-    marginVertical: 10,
-    alignItems: "center",
-    elevation: 3,
+
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#1e293b",
   },
+
+  line: {
+    width: 40,
+    height: 3,
+    backgroundColor: "#6366f1",
+    borderRadius: 10,
+    marginVertical: 8,
+  },
+
+  subtitle: {
+    fontSize: 14,
+    color: "#64748b",
+  },
+
+  cardsContainer: {
+    width: "100%", // 🔥 importante para que las cards ocupen ancho
+  },
+
+  card: {
+    backgroundColor: "#fff",
+    padding: 18,
+    borderRadius: 14,
+    marginBottom: 12,
+    alignItems: "center",
+
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.06,
+    shadowRadius: 5,
+    elevation: 2,
+
+    borderWidth: 1,
+    borderColor: "#eee",
+  },
+
   cardText: {
-    fontSize: 18,
-    fontWeight: "600",
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#111",
   },
 };
