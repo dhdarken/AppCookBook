@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import RecipeCard from "../RecipeCard/RecipeCard";
 import { HomeStack } from "./HomeStack";
+import RecipePage from "../../pages/RecipePag/RecipePag";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,8 +14,8 @@ export default function TabNavigation() {
       />
       <Tab.Screen
         name="Recipes"
-        component={RecipeCard}
-        options={{ headerShown: false, title: "Recetas" }}
+        component={RecipePage} 
+        options={{ title: "Recetas" }}
       />
     </Tab.Navigator>
   );
