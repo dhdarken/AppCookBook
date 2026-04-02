@@ -1,9 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeStack } from "./HomeStack";
 import RecipePage from "../../pages/RecipePag/RecipePag";
-
-// 🔥 IMPORTANTE
 import { Ionicons } from "@expo/vector-icons";
+import { Animated } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,32 +12,57 @@ export default function TabNavigation() {
       screenOptions={({ route }) => ({
         headerShown: false,
 
-        // 🔥 ICONOS DINÁMICOS
-        tabBarIcon: ({ color, size }) => {
+        tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
           if (route.name === "HomeTab") {
-            iconName = "home-outline";
+            iconName = focused ? "home" : "home-outline";
           } else if (route.name === "Recipes") {
-            iconName = "restaurant-outline";
+            iconName = focused
+              ? "restaurant"
+              : "restaurant-outline";
           }
 
-          return <Ionicons name={iconName} size={size} color={color} />;
+         
+          const scale = focused ? 1.2 : 1;
+
+          return (
+            <Animated.View style={{ transform: [{ scale }] }}>
+              <Ionicons name={iconName} size={size} color={color} />
+            </Animated.View>
+          );
         },
 
-        // 🎨 ESTILO
-        tabBarActiveTintColor: "#6366f1", // color activo
-        tabBarInactiveTintColor: "#888", // inactivo
+  
+        tabBarActiveTintColor: "#6366f1",
+        tabBarInactiveTintColor: "#999",
+
+   
         tabBarStyle: {
-          backgroundColor: "#fff",
-          borderTopWidth: 0.5,
-          borderTopColor: "#ddd",
+          position: "absolute",
+          bottom: 15,
+          left: 20,
+          right: 20,
           height: 60,
-          paddingBottom: 5,
+
+          backgroundColor: "#fff",
+          borderRadius: 20,
+
+    
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 5 },
+          shadowOpacity: 0.1,
+          shadowRadius: 10,
+
+     
+          elevation: 10,
+
+          borderTopWidth: 0,
         },
 
         tabBarLabelStyle: {
           fontSize: 12,
+          marginBottom: 5,
         },
       })}
     >

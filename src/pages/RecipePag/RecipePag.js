@@ -23,7 +23,7 @@ export default function RecipePage({ navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingTop: 10 }}>
+      <ScrollView contentContainerStyle={{ paddingTop: insets.top }}>
         
         <Text
           style={{

@@ -1,6 +1,5 @@
 import { View, Text, ScrollView } from "react-native";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useState, useEffect } from "react";
 
 export const mainCourseData = [
@@ -10,7 +9,7 @@ export const mainCourseData = [
     descrip: "Pollo jugoso con especias",
     category: "MainCourse",
     image: require("../../../assets/images/pollo.jpg"),
-    time: "1 hora ,",
+    time: "1 hora",
     difficulty: 2,
     price: 15000,
     ingredients: ["Pollo", "Ajo", "Sal", "Pimienta", "Aceite"],
@@ -27,7 +26,7 @@ export const mainCourseData = [
     descrip: "Capas de pasta con pollo",
     category: "MainCourse",
     image: require("../../../assets/images/lasana.jpg"),
-    time: "50 min ,",
+    time: "50 min",
     difficulty: 3,
     price: 18000,
     ingredients: ["Pasta", "Pollo", "Queso", "Salsa"],
@@ -45,7 +44,7 @@ export const mainCourseData = [
     descrip: "Arroz con mariscos",
     category: "MainCourse",
     image: require("../../../assets/images/paella.jpg"),
-    time: "1 hora ,",
+    time: "1 hora",
     difficulty: 4,
     price: 20000,
     ingredients: ["Arroz", "Mariscos", "Pollo", "Azafrán"],
@@ -63,7 +62,7 @@ export const mainCourseData = [
     descrip: "Carne jugosa a la parrilla",
     category: "MainCourse",
     image: require("../../../assets/images/carne.jpg"),
-    time: "30 min ,",
+    time: "30 min",
     difficulty: 2,
     price: 17000,
     ingredients: ["Carne", "Sal", "Pimienta"],
@@ -80,7 +79,7 @@ export const mainCourseData = [
     descrip: "Clásico arroz con pollo",
     category: "MainCourse",
     image: require("../../../assets/images/arroz.jpg"),
-    time: "40 min ,",
+    time: "40 min",
     difficulty: 2,
     price: 14000,
     ingredients: ["Arroz", "Pollo", "Verduras"],
@@ -92,10 +91,9 @@ export const mainCourseData = [
       "Servir."
     ]
   },
-]
+];
 
 export default function MainCourse({ navigation }) {
-  const insets = useSafeAreaInsets();
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
 
@@ -119,13 +117,20 @@ export default function MainCourse({ navigation }) {
   }
 
   return (
-    <View style={{ flex: 1, paddingTop: 0 }}>
-      <ScrollView>
+    <View style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
+      <ScrollView
+        contentContainerStyle={{
+          alignItems: "center", // 🔥 centra cards
+          paddingBottom: 20,
+        }}
+      >
         <Text
           style={{
             fontSize: 22,
             fontWeight: "bold",
-            margin: 10,
+            marginVertical: 15,
+            alignSelf: "flex-start",
+            marginLeft: 20,
           }}
         >
           🍗 Platos Fuertes

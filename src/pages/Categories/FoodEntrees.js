@@ -1,6 +1,5 @@
 import { View, Text, ScrollView } from "react-native";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useState, useEffect } from "react";
 
 export const foodEntreesData = [
@@ -10,7 +9,7 @@ export const foodEntreesData = [
     descrip: "Crujientes empanadas rellenas de carne y papa",
     category: "FoodEntrees",
     image: require("../../../assets/images/empanada.jpg"),
-    time: "45 min ,",
+    time: "45 min",
     difficulty: 3,
     price: 8000,
     ingredients: [
@@ -39,7 +38,7 @@ export const foodEntreesData = [
     descrip: "Chorizo jugoso con especias",
     category: "FoodEntrees",
     image: require("../../../assets/images/chorizo.jpg"),
-    time: "30 min ,",
+    time: "30 min",
     difficulty: 2,
     price: 9000,
     ingredients: [
@@ -63,7 +62,7 @@ export const foodEntreesData = [
     descrip: "Pan tostado con tomate fresco",
     category: "FoodEntrees",
     image: require("../../../assets/images/bruschetta.jpg"),
-    time: "15 min ,",
+    time: "15 min",
     difficulty: 1,
     price: 6000,
     ingredients: [
@@ -87,7 +86,7 @@ export const foodEntreesData = [
     descrip: "Pescado fresco en limón",
     category: "FoodEntrees",
     image: require("../../../assets/images/ceviche.jpg"),
-    time: "20 min ,",
+    time: "20 min",
     difficulty: 2,
     price: 12000,
     ingredients: [
@@ -111,7 +110,7 @@ export const foodEntreesData = [
     descrip: "Sopa caliente y nutritiva",
     category: "FoodEntrees",
     image: require("../../../assets/images/sopa.jpg"),
-    time: "35 min ,",
+    time: "35 min",
     difficulty: 1,
     price: 7000,
     ingredients: [
@@ -131,7 +130,6 @@ export const foodEntreesData = [
 ];
 
 export default function FoodEntrees({ navigation }) {
-  const insets = useSafeAreaInsets();
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
 
@@ -153,14 +151,22 @@ export default function FoodEntrees({ navigation }) {
       </View>
     );
   }
+
   return (
-    <View style={{ flex: 1, paddingTop: 0 }}>
-      <ScrollView>
+    <View style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
+      <ScrollView
+        contentContainerStyle={{
+          alignItems: "center", // 🔥 CLAVE
+          paddingBottom: 20,
+        }}
+      >
         <Text
           style={{
             fontSize: 22,
             fontWeight: "bold",
-            margin: 10,
+            marginVertical: 15,
+            alignSelf: "flex-start",
+            marginLeft: 20,
           }}
         >
           🥟 Entradas
@@ -168,7 +174,7 @@ export default function FoodEntrees({ navigation }) {
 
         {recipes.map((item) => (
           <RecipeCard
-            key={`${item.category}-${item.id}`}  
+            key={`${item.category}-${item.id}`}
             title={item.title}
             descrip={item.descrip}
             image={item.image}

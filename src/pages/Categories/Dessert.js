@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Text, View, ScrollView } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
 export const dessertData = [
@@ -91,9 +90,7 @@ export const dessertData = [
   },
 ];
 
-
 export default function Dessert({ navigation }) {
-  const insets = useSafeAreaInsets();
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
 
@@ -117,9 +114,22 @@ export default function Dessert({ navigation }) {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingTop: 5 }}>
-        <Text style={{ fontSize: 22, fontWeight: "bold", margin: 10 }}>
+    <View style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
+      <ScrollView
+        contentContainerStyle={{
+          alignItems: "center", // 🔥 CENTRA LAS CARDS
+          paddingBottom: 20,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 22,
+            fontWeight: "bold",
+            marginVertical: 15,
+            alignSelf: "flex-start",
+            marginLeft: 20,
+          }}
+        >
           🍰 Postres
         </Text>
 
